@@ -208,7 +208,7 @@ $x = [
                     <div class="mb-2 sm:mb-0 store flex items-center gap-2 md:text-lg text-xs"> <span><img src="../public/assets/icon/storefront.png" alt="" srcset=""></span>
                       <p class="md:text-lg text-xs"><?php echo $d['seller_name']; ?></p>
                     </div>
-                    <div class="rate flex items-center gap-2 md:text-lg text-xs"><span><img src="../public/assets/icon/star_rate.png" alt="" srcset=""></span> 4 / 5</div>
+
                   </div>
 
                   <div class="flex mb-2 gap-2 items-center">

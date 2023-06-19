@@ -65,7 +65,7 @@
                 <div class="py-10 mb-4 pb-10 px-8 mx-4 rounded-3xl bg-gray-100 border-4 border-[color:var(--violet)] min-h-[80vh] ">
                     <h3 class="text-gray-700 text-3xl font-medium py-6 ">Tambah Masa Pre Order</h3>
 
-                    <form action="<?php echo BASE_URL; ?>/dashboard/addpopost" method="post">
+                    <form autocomplete="off" action="<?php echo BASE_URL; ?>/dashboard/addpopost" method="post">
                         <div class="md:flex gap-10">
                             <div class="flex flex-col gap-8 md:w-1/3">
                                 <?php

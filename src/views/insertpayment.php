@@ -13,7 +13,7 @@
         <?php
         Flasher::flash();
         ?>
-        <form action="<?php echo BASE_URL; ?>/user/postinsertpayment" method="post">
+        <form autocomplete="off" action="<?php echo BASE_URL; ?>/user/postinsertpayment" method="post">
             <div class="mt-10">
 
                 <select name="vendor_id" data-te-select-init data-te-select-size="lg">

@@ -64,7 +64,7 @@
                     <?php
                     Flasher::flash();
                     ?>
-                    <form action="<?php echo BASE_URL; ?>/dashboard/editbarangpost" method="post" enctype="multipart/form-data">
+                    <form autocomplete="off" action="<?php echo BASE_URL; ?>/dashboard/editbarangpost" method="post" enctype="multipart/form-data">
                         <input name="itemid" type="text" hidden value="<?php echo $data[0]['item_id']; ?>">
                         <div class="md:flex gap-10">
                             <div class="flex flex-col gap-8 md:w-1/3">

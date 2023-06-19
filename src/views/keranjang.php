@@ -128,7 +128,7 @@
                                         </thead>
                                         <tbody class="bg-white divide-y divide-gray-200">
                                             <?php foreach ($data as $d) : ?>
-                                                <form id="formx" action="<?php echo BASE_URL; ?>/home/checkout/" method="post">
+                                                <form autocomplete="off" id="formx" action="<?php echo BASE_URL; ?>/home/checkout/" method="post">
                                                     <tr>
                                                         <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
                                                             <p><?php echo $d['item_name']; ?></p>

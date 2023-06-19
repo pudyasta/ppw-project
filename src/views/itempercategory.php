@@ -67,7 +67,7 @@ $x = [
     </div>
     <div class="nav-mob">
         <button href="" class="collapse-btn">
-            <img class="collapse-btn" src="../public/assets/icon/menu.png" alt="" width="30px" srcset="" />
+            <img class="collapse-btn" src="<?php echo BASE_URL; ?>/public/assets/icon/menu.png" alt="" width="30px" srcset="" />
         </button>
         <img src="<?php echo BASE_URL; ?>/public/assets/1.png" alt="" width="100" />
         <button id="keranjang">

@@ -20,7 +20,7 @@
     </div>
 </nav>
 <section class=" w-full h-[100vh] items-center justify-around md:mt-0 mt-32">
-    <form action="<?php echo BASE_URL; ?>/home/checkoutpost" method="post" class="lg:grid my-10 grid-cols-2 gap-x-20 px-32 w-full h-[100vh] items-center justify-around" enctype="multipart/form-data">
+    <form autocomplete="off" action="<?php echo BASE_URL; ?>/home/checkoutpost" method="post" class="lg:grid my-10 grid-cols-2 gap-x-20 px-32 w-full h-[100vh] items-center justify-around" enctype="multipart/form-data">
 
         <div class="contain">
             <div class=" text-center">

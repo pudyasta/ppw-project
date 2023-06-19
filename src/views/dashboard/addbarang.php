@@ -42,7 +42,7 @@
                                         </a>
                                     </li>
                                     <li class="flex">
-                                        <form class="w-full" action="<?php echo BASE_URL; ?>/user/logout" method="post">
+                                        <form autocomplete="off" class="w-full" action="<?php echo BASE_URL; ?>/user/logout" method="post">
                                             <button type="submit" class="w-full inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800">
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
@@ -61,7 +61,7 @@
             <main class="">
                 <div class="py-10 mb-4 pb-10 px-8 mx-4 rounded-3xl bg-gray-100 border-4 border-[color:var(--violet)] min-h-[80vh] ">
                     <h3 class="text-gray-700 text-3xl font-medium py-6 ">Tambah Barang</h3>
-                    <form action="<?php echo BASE_URL; ?>/dashboard/addbarangpost" method="post" enctype="multipart/form-data">
+                    <form autocomplete="off" action="<?php echo BASE_URL; ?>/dashboard/addbarangpost" method="post" enctype="multipart/form-data">
                         <div class="md:flex gap-10">
                             <div class="flex flex-col gap-8 md:w-1/3">
                                 <?php
