@@ -1,17 +1,26 @@
 <?php
-$data = [
+$x = [
   ["name" => "gelang", "img" => "../public/assets/categories/gelang.png"],
   ["name" => "lanyard", "img" => "../public/assets/categories/lanyard.png"],
   ["name" => "kaos", "img" => "../public/assets/categories/kaos.png"],
   ["name" => "hoodie", "img" => "../public/assets/categories/hoddie.png"],
   ["name" => "korsa", "img" => "../public/assets/categories/korsa.png"],
   ["name" => "jaket", "img" => "../public/assets/categories/jaket.png"],
-  ["name" => "gelang", "img" => "../public/assets/categories/gelang.png"],
-  ["name" => "gelang", "img" => "../public/assets/categories/gelang.png"],
-  ["name" => "gelang", "img" => "../public/assets/categories/gelang.png"],
+  ["name" => "tumblr", "img" => "../public/assets/categories/tumblr.png"],
+  ["name" => "poster", "img" => "../public/assets/categories/poster.png"],
+  ["name" => "stiker", "img" => "../public/assets/categories/stiker.png"],
+  ["name" => "aksesoris", "img" => "../public/assets/categories/aksesoris.png"],
 ];
 ?>
-
+<script>
+  let storage1 = JSON.parse(localStorage.getItem("itemid"));
+  if (storage1 == null) {
+    const data = {
+      data: []
+    };
+    localStorage.setItem("itemid", JSON.stringify(data));
+  }
+</script>
 
 <div class="head">
   <a href="#">bantuan</a>
@@ -21,7 +30,8 @@ $data = [
 <nav class="drop-shadow-md">
   <div class="nav-head nav-desk">
     <div class="brand">
-      <a href="/">
+      <a href="<?php echo BASE_URL; ?>/home/">
+
         <img class="brand-img" src="../public/assets/1.png" alt="" />
       </a>
       <form action="" class="relative">
@@ -31,7 +41,7 @@ $data = [
       </form>
     </div>
     <div class="link">
-      <a href="#" class="nav-link">
+      <a href="<?php echo BASE_URL; ?>/home/keranjang" id="keranjang" class="nav-link">
         <img src="../public/assets/icon/shopping_cart.png" class="m-auto" alt="" />
         <p>keranjang</p>
       </a>
@@ -44,27 +54,27 @@ $data = [
         <p>pesan masuk</p>
       </a>
       <a href="<?php echo BASE_URL; ?>/user/signin">
-        <button class="btn-violet-outlined">jadi seller</button>
+        <button class="btn-violet-outlined"><?php echo isset($_SESSION['user']) ? 'Dashboard' : 'Jadi Seller'; ?></button>
       </a>
     </div>
   </div>
   <div class="nav-cat">
-    <a href="">pakaian</a>
-    <a href="">aksesoris</a>
-    <a href="">makanan</a>
-    <a href="">minuman</a>
-    <a href="">tas</a>
-    <a href="">tumblr</a>
-    <a href="">stiker & poster</a>
+    <a href="<?php echo BASE_URL; ?>/home/itempercategory/pakaian">pakaian</a>
+    <a href="<?php echo BASE_URL; ?>/home/itempercategory/aksesoris">aksesoris</a>
+    <a href="<?php echo BASE_URL; ?>/home/itempercategory/makanan">makanan</a>
+    <a href="<?php echo BASE_URL; ?>/home/itempercategory/minuman">minuman</a>
+    <a href="<?php echo BASE_URL; ?>/home/itempercategory/tas">tas</a>
+    <a href="<?php echo BASE_URL; ?>/home/itempercategory/tumblr">tumblr</a>
+    <a href="<?php echo BASE_URL; ?>/home/itempercategory/stiker">stiker</a>
   </div>
   <div class="nav-mob">
     <button href="" class="collapse-btn">
       <img class="collapse-btn" src="../public/assets/icon/menu.png" alt="" width="30px" srcset="" />
     </button>
     <img src="../public/assets/1.png" alt="" width="100" />
-    <a href="">
+    <button id="keranjang">
       <img src="../public/assets/icon/shopping_cart.png" alt="" width="30px" srcset="" />
-    </a>
+    </button>
   </div>
   <div class="nav-collapse">
     <form action="" class="relative mb-5  ">
@@ -137,39 +147,29 @@ $data = [
 
 <div class="xl:px-32 px-[20px] w-full sm:py-16 pt-5">
   <h2 class="md:text-3xl text-xl font-medium">Kategori</h2>
-  <div class="grid w-full md:grid-cols-6 md:grid-rows-1 md:gap-10 gap-4  my-5  relative ">
-    <div class="md:grid hidden md:grid-rows-5 gap-2">
-      <a href="/fashion" class="">
-        <span class="md:text-lg text-sm border-[color:var(--violet)] border-2 text-[color:var(--violet)] md:w-full md:py-4  block rounded-lg px-3 font-semibold ">
-          Fashion
-        </span>
-      </a>
 
-    </div>
-    <div class="category xl:flex grid lg:grid-cols-6 grid-cols-5   col-span-5 md:gap-5 gap-y-5 gap-x-3">
-      <?php foreach ($data as $d) : ?>
-        <div class="md:[&:nth-child(n+7)]:hidden  lg:h-full min-h-24 w-full  md:grid-rows-1 grid grid-rows-4 md:text-left text-center md:rounded-xl rounded-md z-0
+  <div class="category xl:flex grid lg:grid-cols-8 grid-cols-5   col-span-5 md:gap-5 gap-y-5 gap-x-3 lg:h-80 md:h-64   my-5">
+    <?php foreach ($x as $d) : ?>
+      <div class="md:[&:nth-child(n+9)]:hidden  lg:h-80 min-h-24 w-full  md:grid-rows-1 grid grid-rows-4 md:text-left text-center md:rounded-xl rounded-md z-0
           ">
-          <div class="h-full relative overflow-hidden md:rounded-xl rounded-md row-span-3">
-            <a href="/main" class="relative block items-center h-full ">
-              <h2 class="absolute top-[40%] text-white  lg:font-semibold font-medium lg:text-2xl xl:text-3xl  z-20 mx-4 capitalize md:block hidden">
-                <?php echo $d['name']; ?>
-              </h2>
-              <div class="h-full relative  before:content-[''] before:h-full before:w-full before:bg-black/25 md:before:absolute before:top-0 before:left-0 before:z-10 before:block ">
-                <img class="h-full w-full absolute top-0 object-cover" src="<?php echo $d['img'] ?>" />
-              </div>
-            </a>
-          </div>
-          <div class="h-full">
-            <h2 class="relative text-black font-medium lg:text-3xl md:text-2xl sm:text-lg text-xs z-10 capitalize md:hidden block mt-1">
+        <div class="h-full relative overflow-hidden md:rounded-xl rounded-md row-span-3">
+          <a href="<?php echo BASE_URL; ?>/home/itempercategory/<?php echo $d['name']; ?>" class="relative block items-center h-full ">
+            <h2 class="absolute top-[40%] text-white  lg:font-semibold font-medium lg:text-2xl xl:text-3xl  z-20 mx-4 capitalize md:block hidden">
               <?php echo $d['name']; ?>
             </h2>
-          </div>
+            <div class="h-full relative  before:content-[''] before:h-full before:w-full before:bg-black/25 md:before:absolute before:top-0 before:left-0 before:z-10 before:block ">
+              <img class="h-full w-full absolute top-0 object-cover" src="<?php echo $d['img'] ?>" />
+            </div>
+          </a>
         </div>
-      <?php endforeach ?>
+        <div class="h-full">
+          <h2 class="relative text-black font-medium lg:text-3xl md:text-2xl sm:text-lg text-xs z-10 capitalize md:hidden block mt-1">
+            <?php echo $d['name']; ?>
+          </h2>
+        </div>
+      </div>
+    <?php endforeach ?>
 
-
-    </div>
   </div>
 </div>
 
@@ -183,46 +183,62 @@ $data = [
   </div>
   <div class="swiper mySwiper md:py-10 pb-10 pt-4">
     <div class="swiper-wrapper">
-      <?php for ($i = 0; $i < 10; $i++) : ?>
-        <div class="swiper-slide">
-          <div class="md:w-72 w-38 m-2 block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
-            <div class="relative overflow-hidden bg-cover bg-no-repeat" data-te-ripple-init data-te-ripple-color="light">
-              <img class="rounded-t-lg object-cover w-full" src="../public/assets/items/1.png" alt="" />
-              <a href="#!">
-                <div class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100"></div>
-              </a>
-            </div>
-            <div class="md:p-6 p-3">
-              <h5 class="mb-2 md:text-lg text-xs font-semibold leading-tight text-neutral-800 dark:text-neutral-50">
-                Jersey Home FC Barcelona 2022 / 2023
-              </h5>
-              <h4 class="mb-2 md:text-lg text-xs font-semibold text-[color:var(--violet)] leading-tight">
-                Rp 110.000,00
-              </h4>
-              <div class="md:flex mb-2 justify-between">
-                <div class="mb-2 sm:mb-0 store flex items-center gap-2 md:text-lg text-xs"> <span><img src="../public/assets/icon/storefront.png" alt="" srcset=""></span>
-                  <p class="md:text-lg text-xs">Ciputat Store</p>
+      <?php foreach ($data[0] as $d) : ?>
+        <?php
+        if (!in_array($d['preorder_id'], $data[1])) :
+        ?>
+          <div class="swiper-slide">
+            <div class="md:w-72 w-38 m-2 block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+              <div class="relative overflow-hidden bg-fill bg-no-repeat md:h-48 h-32" data-te-ripple-init data-te-ripple-color="light">
+                <img class="rounded-t-lg object-cover w-full" src="<?php echo BASE_URL; ?>/<?php echo $d['item_image']; ?>" alt="" />
+                <a href="#!">
+                  <div class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100"></div>
+                </a>
+              </div>
+              <div class="md:p-6 p-3 flex flex-col justify-between md:h-[250px]">
+                <div>
+                  <h5 class="mb-2 md:text-lg text-xs font-semibold leading-tight text-neutral-800 dark:text-neutral-50">
+                    <?php echo $d['item_name']; ?>
+                  </h5>
+                  <h4 class="mb-2 md:text-lg text-xs font-semibold text-[color:var(--violet)] leading-tight">
+                    Rp <?php echo number_format($d['price'], 2, '.', ','); ?>
+
+                  </h4>
+                  <div class="md:flex mb-2 justify-between">
+                    <div class="mb-2 sm:mb-0 store flex items-center gap-2 md:text-lg text-xs"> <span><img src="../public/assets/icon/storefront.png" alt="" srcset=""></span>
+                      <p class="md:text-lg text-xs"><?php echo $d['seller_name']; ?></p>
+                    </div>
+                    <div class="rate flex items-center gap-2 md:text-lg text-xs"><span><img src="../public/assets/icon/star_rate.png" alt="" srcset=""></span> 4 / 5</div>
+                  </div>
+
+                  <div class="flex mb-2 gap-2 items-center">
+                    <img src="../public/assets/icon/alarm.png" alt="" srcset="">
+                    <h5 class=" md:text-base text-xs font-semibold leading-tight text-neutral-800 dark:text-neutral-50">
+                      <?php
+                      $dateObj = date_create_from_format("Y-m-d", $d['cutoff_date']);
+                      $formattedDate = date_format($dateObj, "d-m-Y");
+                      $monthNumber = date_format($dateObj, "m");
+                      $monthName = date("F", strtotime("2000-$monthNumber-01"));
+                      $formattedDate = str_replace(date("m", strtotime($d['cutoff_date'])), $monthName, $formattedDate);
+                      echo str_replace("-", " ", $formattedDate);
+                      ?>
+                    </h5>
+                  </div>
                 </div>
-                <div class="rate flex items-center gap-2 md:text-lg text-xs"><span><img src="../public/assets/icon/star_rate.png" alt="" srcset=""></span> 4 / 5</div>
+
+                <button id="addToChart" data-preorder="<?php echo $d['preorder_id']; ?>" type="button" class="addToChart w-full inline-block rounded bg-[color:var(--violet)] px-6 pb-2 pt-2.5  font-medium capitalize leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-[color:var(--violet)]-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-[color:var(--violet)]-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-[color:var(--violet)]-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]" data-te-ripple-init data-te-ripple-color="light">
+                  <p class="text-xs" data-preorder="<?php echo $d['preorder_id']; ?>">
+                    Tambah <span data-preorder="<?php echo $d['preorder_id']; ?>" class="md:inline hidden">ke Keranjang</span>
+                  </p>
+                </button>
               </div>
-
-              <div class="flex mb-2 gap-2 items-center">
-                <img src="../public/assets/icon/alarm.png" alt="" srcset="">
-                <h5 class=" md:text-base text-xs font-semibold leading-tight text-neutral-800 dark:text-neutral-50">
-                  12 Juni 2023
-                </h5>
-              </div>
-
-              <button type="button" class="w-full inline-block rounded bg-[color:var(--violet)] px-6 pb-2 pt-2.5  font-medium capitalize leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-[color:var(--violet)]-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-[color:var(--violet)]-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-[color:var(--violet)]-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]" data-te-ripple-init data-te-ripple-color="light">
-                <p class="text-xs">
-
-                  Tambah <span class="md:inline hidden">ke Keranjang</span>
-                </p>
-              </button>
             </div>
           </div>
-        </div>
-      <?php endfor ?>
+        <?php
+        endif;
+        ?>
+      <?php endforeach ?>
+
     </div>
 
     <div class="swiper-pagination "></div>
@@ -279,7 +295,7 @@ $data = [
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script>
   let swiper = new Swiper(".mySwiper", {
 
@@ -291,19 +307,19 @@ $data = [
       },
 
       "@1.00": {
-        slidesPerView: 3.5,
+        slidesPerView: 3,
         spaceBetween: 40,
-        slidesPerGroup: 3.5,
+        slidesPerGroup: 3,
       },
       "@1.50": {
-        slidesPerView: 4.5,
+        slidesPerView: 4,
         spaceBetween: 50,
-        slidesPerGroup: 4.5,
+        slidesPerGroup: 4,
       },
       "@1.75": {
-        slidesPerView: 5.5,
+        slidesPerView: 5,
         spaceBetween: 50,
-        slidesPerGroup: 5.5,
+        slidesPerGroup: 5,
       },
     },
 
@@ -313,8 +329,36 @@ $data = [
       clickable: true,
     },
   });
+
+  const a = document.querySelectorAll(".addToChart");
+  a.forEach((x) => {
+    x.addEventListener("click", (e) => {
+      axios({
+          method: 'post',
+          url: 'http://localhost/jajan/baskets/insertChart/',
+          data: {
+            data: e.target.dataset.preorder
+          },
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        }).then(function(response) {
+          var responseData = response.data;
+          console.log(responseData);
+        })
+        .catch(function(error) {
+          console.log('Request failed:', error);
+        });
+      x.disabled = true;
+      x.classList.remove('bg-[color:var(--violet)]')
+      x.classList.remove('text-white')
+      x.classList.add('bg-white')
+      x.classList.add('text-[color:var(--violet)]')
+      x.innerHTML = "<p class='text-xs'>Telah ditambahkan</p>"
+    });
+  });
 </script>
-<script src="../public/js/index.js"></script>
+<script src="<?php echo BASE_URL; ?>/public/js/index.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
 </body>
 

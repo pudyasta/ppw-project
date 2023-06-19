@@ -11,7 +11,7 @@ class CategoriesModel
     public function getAllCategories()
     {
 
-        $this->db->query('SELECT * FROM categories');
+        $this->db->query('SELECT * FROM categories ORDER BY category_name');
         $this->db->execute();
         $data = $this->db->resultset();
         return $data;

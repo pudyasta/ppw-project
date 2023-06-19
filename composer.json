@@ -1,0 +1,12 @@
+{
+    "name": "pudy/jajan",
+    "require": {
+        "robmorgan/phinx": "^0.13.4"
+    },
+    "authors": [
+        {
+            "name": "pudyasta",
+            "email": "pudyastasatria@gmail.com"
+        }
+    ]
+}

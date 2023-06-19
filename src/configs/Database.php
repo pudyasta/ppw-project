@@ -55,6 +55,11 @@ class  Database
         $this->execute();
         return $this->stmt->fetchall(PDO::FETCH_ASSOC);
     }
+    public function resultnum()
+    {
+        $this->execute();
+        return $this->stmt->fetchall(PDO::FETCH_NUM);
+    }
     public function singleset()
     {
         $this->execute();

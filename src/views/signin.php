@@ -1,6 +1,3 @@
-<?php
-
-?>
 <section class="flex w-full h-[100vh] items-center justify-around">
     <div class="img lg:block hidden">
         <img src="<?php echo BASE_URL; ?>/public/assets/banner/gambar_lain/bg.svg" alt="" class="w-[70vh]">
@@ -22,7 +19,6 @@
             </div>
             <div class="relative my-8" data-te-input-wrapper-init>
                 <input name="password" type="password" class="peer focus:border-[color:var(--violet)] block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-4 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0" id="exampleFormControlInputText" placeholder="Example label" />
-
                 <label for="exampleFormControlInputText" class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-4 leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[1.4rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[1.4rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">Password
                 </label>
             </div>
