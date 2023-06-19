@@ -1,10 +1,1 @@
-'DAFTAR Table'
 
-$this->dbh->query("CREATE TABLE IF NOT EXISTS sellers(seller_id int PRIMARY KEY AUTO_INCREMENT, seller_name VARCHAR(20) NOT NULL, seller_location VARCHAR(30) NOT NULL )");
-$this->dbh->query("CREATE TABLE IF NOT EXISTS items(item_id int PRIMARY KEY AUTO_INCREMENT, item_name VARCHAR(30) NOT NULL,price int NOT NULL, stock int NOT NULL, descriptions varchar(256), seller_id int NOT NULL, FOREIGN KEY (seller_id) REFERENCES sellers(seller_id) )");
-$this->dbh->query("CREATE TABLE IF NOT EXISTS ratings(rating_id int PRIMARY KEY AUTO_INCREMENT, rate int NOT NULL, item_id int NOT NULL, seller_id int NOT NULL, FOREIGN KEY (item_id) REFERENCES items(item_id), FOREIGN KEY (seller_id) REFERENCES sellers(seller_id) )");
-$this->dbh->query("CREATE TABLE IF NOT EXISTS preorders(preorder_id int PRIMARY KEY AUTO_INCREMENT, seller_id int NOT NULL, start_date date NOT NULL, cutoff_date date NOT NULL, preorder_status ENUM('scheduled','on_going','closed'),FOREIGN KEY (seller_id) REFERENCES sellers(seller_id))");
-$this->dbh->query("CREATE TABLE IF NOT EXISTS invoices(invoice_id int PRIMARY KEY AUTO_INCREMENT, status enum('pending','approved','completed') NOT NULL, preorder_id int NOT NULL, FOREIGN KEY (preorder_id) REFERENCES preorders(preorder_id))");
-$this->dbh->query("CREATE TABLE IF NOT EXISTS orders(order_id int PRIMARY KEY AUTO_INCREMENT,item_id int NOT NULL, invoice_id int NOT NULL, FOREIGN KEY (item_id) REFERENCES items(item_id),FOREIGN KEY (invoice_id) REFERENCES invoices(invoice_id) )");
-$this->dbh->query("CREATE TABLE IF NOT EXISTS order_details(order_details_id int PRIMARY KEY AUTO_INCREMENT,customer_name varchar(20) NOT NULL, customer_email VARCHAR(30) NOT NULL, order_id int NOT NULL, quantity int NOT NULL, customer_phone VARCHAR(15) NOT NULL, payment_prove VARCHAR(256) NOT NULL, FOREIGN KEY (order_id) REFERENCES orders(order_id))");
-$this->dbh->query("CREATE TABLE IF NOT EXISTS categories(category_id int PRIMARY KEY AUTO_INCREMENT, category_name VARCHAR(20) NOT NULL)");
